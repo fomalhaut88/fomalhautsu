@@ -1,0 +1,8 @@
+*~
+__pycache__
+
+/tmp/*
+!/tmp/.gitkeep
+
+/plan.txt
+/docker-compose.yml

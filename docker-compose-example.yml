@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: deploy/backend/Dockerfile
+    restart: always
+    ports:
+      - "58302:8000"
+    volumes:
+      - ./tmp:/code/tmp
+    environment:
+      - SECRET_KEY=ieyaefeexei2ooVaicoofeiCheetaD9Naav4Vu4OhToomai5Tu
+      - DEBUG=1
+      - ALLOWED_HOST=localhost
+      - STATIC_ROOT=/code/tmp/static
+      - MEDIA_ROOT=/code/tmp/media
+      - DB_PATH=/code/tmp/db.sqlite3
+      - LOG_PATH=/code/tmp/log
+      - LOG_LEVEL=INFO
+      - SUPERUSER_USERNAME=admin
+      - SUPERUSER_PASSWORD=qwerty123
+
+  frontend:
+    build:
+      context: .
+      dockerfile: deploy/frontend/Dockerfile
+    restart: always
+    ports:
+      - "58312:8080"
+    depends_on:
+      - backend

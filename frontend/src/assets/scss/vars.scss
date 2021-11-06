@@ -1,0 +1,24 @@
+$media-min-width: 768px;
+$container-max-width: 1200px;
+
+$colors-map: (
+  "light": #fff,
+  "dark": #000,
+  "primary": #f40,
+  "muted": #bbb,
+  "link": #08f,
+  "selection": #4cf,
+  "grey": #eee,
+) !default;
+
+$sizes-map: (
+  1: 0.5rem,
+  2: 1rem,
+  3: 2rem,
+  4: 4rem,
+  5: 8rem,
+) !default;
+
+@function color($key) {
+  @return map-get($colors-map, $key)
+}

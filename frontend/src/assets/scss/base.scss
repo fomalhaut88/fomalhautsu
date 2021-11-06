@@ -1,0 +1,131 @@
+@import 'vars';
+
+::selection {
+  background: color('selection');
+}
+
+html {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.75rem;
+
+  position:relative;
+  min-height: 100%;
+}
+
+body {
+  min-height: 100%;
+  margin: 0;
+  margin-bottom: 4rem;
+  overflow-x: hidden;
+
+  &.home {
+    background-color: color('dark');
+  }
+}
+
+a {
+  transition: 0.25s;
+  text-decoration: none;
+  color: color('link');
+
+  &:hover {
+    color: color('primary');
+  }
+}
+
+.hidden {
+  display: none !important;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.container {
+  max-width: $container-max-width;
+  margin: 0 auto;
+}
+
+.display-inline {
+  display: inline;
+}
+
+.text-nowrap {
+  white-space: nowrap;
+}
+
+.text-muted {
+  color: color('muted');
+}
+
+
+/* p- and m- classes
+ * based on $sizes-map (defined in vars.scss)
+ * like in Bootstrap */
+
+@each $key, $value in $sizes-map {
+  .pl-#{$key} {
+    padding-left: $value;
+  }
+
+  .pr-#{$key} {
+    padding-right: $value;
+  }
+
+  .pt-#{$key} {
+    padding-top: $value;
+  }
+
+  .pb-#{$key} {
+    padding-bottom: $value;
+  }
+
+  .px-#{$key} {
+    @extend .pl-#{$key};
+    @extend .pr-#{$key};
+  }
+
+  .py-#{$key} {
+    @extend .pt-#{$key};
+    @extend .pb-#{$key};
+  }
+
+  .p-#{$key} {
+    @extend .px-#{$key};
+    @extend .py-#{$key};
+  }
+
+
+  .ml-#{$key} {
+    margin-left: $value;
+  }
+
+  .mr-#{$key} {
+    margin-right: $value;
+  }
+
+  .mt-#{$key} {
+    margin-top: $value;
+  }
+
+  .mb-#{$key} {
+    margin-bottom: $value;
+  }
+
+  .mx-#{$key} {
+    @extend .ml-#{$key};
+    @extend .mr-#{$key};
+  }
+
+  .my-#{$key} {
+    @extend .mt-#{$key};
+    @extend .mb-#{$key};
+  }
+
+  .m-#{$key} {
+    @extend .mx-#{$key};
+    @extend .my-#{$key};
+  }
+}
