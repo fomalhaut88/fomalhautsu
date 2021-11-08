@@ -2,9 +2,7 @@ version: '3'
 
 services:
   backend:
-    build:
-      context: .
-      dockerfile: deploy/backend/Dockerfile
+    build: ./backend
     restart: always
     ports:
       - "58302:8000"
@@ -23,9 +21,7 @@ services:
       - SUPERUSER_PASSWORD=qwerty123
 
   frontend:
-    build:
-      context: .
-      dockerfile: deploy/frontend/Dockerfile
+    build: ./frontend
     restart: always
     ports:
       - "58312:8080"

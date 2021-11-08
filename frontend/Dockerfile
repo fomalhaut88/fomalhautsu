@@ -3,12 +3,11 @@ FROM node:lts-alpine
 WORKDIR /code
 
 RUN npm install -g http-server
-COPY frontend/package.json .
+COPY package.json .
 RUN npm install
 
-COPY frontend .
-COPY deploy/frontend/.env .
-RUN rm -f .env.local
+COPY . .
+COPY deploy/.env .
 
 RUN npm run build
 

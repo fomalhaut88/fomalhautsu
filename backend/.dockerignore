@@ -1,0 +1,10 @@
+*~
+
+**/__pycache__
+
+media/*
+tmp/*
+
+.venv
+.env
+db.sqlite3
