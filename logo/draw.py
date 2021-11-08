@@ -5,7 +5,7 @@ SIZE = 256
 ALPHA = 3.0
 HEIGHT = SIZE * 3 // 4
 THICKNESS = SIZE // 8
-COLOR = "#f40"
+COLOR = "#f50"
 
 
 def draw_line(dwg, a, b):
@@ -49,4 +49,4 @@ if __name__ == "__main__":
         (SIZE / 2 - width / 2 + HEIGHT / ALPHA * 3, SIZE / 2 - HEIGHT / 2)
     )
 
-    dwg.saveas("logo.svg")
+    dwg.saveas("../frontend/src/assets/logo.svg")

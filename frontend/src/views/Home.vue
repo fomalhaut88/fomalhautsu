@@ -2,7 +2,7 @@
   <div class="home">
     <div class="container">
       <div class="div-img">
-        <img src="../assets/home.jpg">
+        <img src="../assets/home.png">
       </div>
 
       <div class="div-about">
@@ -42,7 +42,7 @@
 
         img {
           display: inline-block;
-          width: 80%;
+          width: 100%;
         }
       }
 
