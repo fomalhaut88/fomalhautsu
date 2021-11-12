@@ -17,11 +17,12 @@
            class="mb-3"
            :class="{'padding-right': (idx + 1) % 2, 'padding-left': idx % 2}">
 
-        <div class="div-img">
-          <img :src="article.image_url">
+        <div class="div-img py-1">
+          <img :src="article.image_url" v-if="article.image_url">
+          <img src="../assets/article-default.png" v-else>
         </div>
 
-        <div class="div-about">
+        <div class="div-about py-1">
           <h2 class="display-inline">
             <router-link :to="getArticleURL(article)">
               {{ article.title }}
@@ -46,6 +47,7 @@
 </template>
 
 <script>
+  import cyrillicToTranslit from 'cyrillic-to-translit-js'
   import { haveIntersection, removeUpmathSpecs, toCebabCase } from '@/utils'
 
   export default {
@@ -68,7 +70,9 @@
         return !activeTags.length || haveIntersection(activeTags, article.tags)
       },
       getArticleURL(article) {
-        return `/blog/${article.id}/${toCebabCase(article.title)}`
+        const urlTransliteratied = cyrillicToTranslit().transform(article.title)
+        const urlTitle = toCebabCase(urlTransliteratied)
+        return `/blog/${article.id}/${urlTitle}`
       },
       getActiveTags() {
         if (this.tags) {
@@ -129,13 +133,13 @@
 
         &.padding-left {
           @media (min-width: $media-min-width) {
-            padding-left: 15%;
+            padding-left: 7%;
           }
         }
 
         &.padding-right {
           @media (min-width: $media-min-width) {
-            padding-right: 15%;
+            padding-right: 7%;
           }
         }
 
@@ -150,6 +154,8 @@
 
           img {
             width: 100%;
+            height: 100%;
+            object-fit: cover;
           }
         }
 

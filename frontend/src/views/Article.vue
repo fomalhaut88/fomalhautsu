@@ -1,9 +1,9 @@
 <template>
-  <div id="article" class="article px-2">
+  <div id="article" class="article px-2 pt-1">
     <div v-if="article">
+      <router-link to="/blog">Back to list of articles</router-link>
       <h2 class="text-center">{{ article.title }}</h2>
       <div class="text-muted text-center">{{ article.date }}</div>
-      <router-link to="/blog">Back to list of articles</router-link>
       <div class="text" v-html="getText()"></div>
     </div>
     <div class="text-center py-2" v-else>

@@ -1,3 +1,5 @@
+import re
+
 from django.db import models
 from django.utils import timezone
 from django.utils.html import mark_safe
@@ -72,7 +74,13 @@ class BlogArticle(models.Model):
 
     @property
     def preview_text(self):
-        return self.text[:300]
+        return self._remove_markdown_specs(self.text)[:300]
+
+    def _remove_markdown_specs(self, text):
+        text = re.sub(r"[\*\_\'\`\#\~]+", "", text)
+        text = re.sub(r"\!\[.*?\]\(.*?\)", "", text)
+        text = re.sub(r"\[.*?\]\((.*?)\)", "\1", text)
+        return text
 
 
 class Project(models.Model):

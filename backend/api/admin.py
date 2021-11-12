@@ -1,4 +1,6 @@
 from django.contrib import admin
+from django.forms import Textarea
+from django.db.models import TextField
 
 from . import models
 
@@ -22,6 +24,15 @@ class BlogTagAdmin(admin.ModelAdmin):
 @admin.register(models.BlogArticle)
 class BlogArticleAdmin(admin.ModelAdmin):
     list_display = ('title', 'date', 'image', 'is_hidden')
+
+    formfield_overrides = {
+        TextField: {
+            'widget': Textarea(attrs={
+                'rows': 60,
+                'style': 'width: calc(100% - 24px);'
+            })
+        }
+    }
 
 
 @admin.register(models.Project)
