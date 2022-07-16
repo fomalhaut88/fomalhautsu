@@ -8,7 +8,7 @@ import './assets/scss/main.scss'
 
 Vue.use(VueResource)
 
-import App from './App.vue'
+import { default as App } from './AppNew.vue'
 import router from './router'
 import Api from './api'
 

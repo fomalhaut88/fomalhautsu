@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-import Home from '../views/Home.vue'
+import Home from '../viewsnew/Home.vue'
 import About from '../views/About.vue'
-import Blog from '../views/Blog.vue'
+import Blog from '../viewsnew/Blog.vue'
 import Article from '../views/Article.vue'
 import Projects from '../views/Projects.vue'
 import Files from '../views/Files.vue'

@@ -19,6 +19,8 @@ body {
   margin: 0;
   margin-bottom: 4rem;
   overflow-x: hidden;
+  background-color: color("bg-secondary");
+  color: color("light");
 
   &.home {
     background-color: color('dark');

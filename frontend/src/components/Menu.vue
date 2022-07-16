@@ -2,9 +2,12 @@
   <div class="menu" @click.self="hide()" :class="{hidden: !isShown, active: isActive}">
     <div class="menu-container" :class="{active: isActive}">
       <div class="p-2">
-        <div v-for="item in items" :key="item.title" class="menu-item py-2 pl-2 pr-5">
+        <div class="px-5 py-3">
+          <span class="title">MENU</span>
+        </div>
+        <div>&nbsp;</div>
+        <div v-for="item in items" :key="item.title" class="menu-item py-2 px-5">
           <router-link :to="item.link" @click.native="hide()">
-            <Icon :type="item.icon" :fixed-width="true" />
             {{ item.title }}
           </router-link>
         </div>
@@ -21,14 +24,14 @@
         isActive: false,
         items: [
           {
-            title: 'Blog',
-            link: '/blog',
-            icon: 'blog',
-          },
-          {
             title: 'Projects',
             link: '/projects',
             icon: 'code',
+          },
+          {
+            title: 'Blog',
+            link: '/blog',
+            icon: 'blog',
           },
           {
             title: 'Files',
@@ -88,32 +91,45 @@
     transition: 0.25s;
 
     &.active {
-      background-color: rgb(0, 0, 0, 0.875);
+      background-color: rgb(0, 0, 0, 0.85);
     }
 
     .menu-container {
-      background-color: white;
+      background-color: color("bg-secondary");
       display: inline-block;
       position: absolute;
-      right: -100%;
+      left: -100%;
       height: 100%;
       transition: 0.25s;
 
       &.active {
-        right: 0;
+        left: 0;
       }
 
       .menu-item a {
-        font-size: 1.0rem;
         text-decoration: none;
-        text-transform: uppercase;
+        /*text-transform: uppercase;*/
         user-select: none;
-        -webkit-tap-highlight-color:rgba(0, 0, 0, 0);
-        color: color('dark');
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        color: color('light');
+        font-family: 'Halvar Breit Rg';
+        font-style: normal;
+        font-weight: 300;
+        font-size: 32px;
 
         &:hover {
           color: color('primary');
         }
+      }
+
+      .title {
+        color: color("light");
+        font-family: 'Halvar Breit Rg';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 48px;
+        padding-bottom: 0.25rem;
+        border-bottom: 5px solid color("secondary");
       }
     }
   }

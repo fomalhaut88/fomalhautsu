@@ -1,17 +1,14 @@
 <template>
   <div class="footer py-2">
-    <div :class="wrapperClass">
-      <slot></slot>
-    </div>
+    &copy; Alexander Khlebushchev 2015 - {{ getYear() }}
   </div>
 </template>
 
 <script>
   export default {
-    props: {
-      wrapperClass: {
-        type: String,
-        default: "",
+    methods: {
+      getYear() {
+        return new Date().getFullYear()
       },
     },
   }
@@ -21,12 +18,17 @@
   @import '@/assets/scss/base';
 
   .footer {
-    background-color: color('dark');
-    color: color('light');
+    background-color: color('bg-primary');
+    color: color('muted');
     position: absolute;
     bottom: 0;
     width: 100%;
     text-align: center;
     margin: 0;
+
+    font-family: 'Halvar Breit Rg';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1rem;
   }
 </style>

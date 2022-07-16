@@ -2,11 +2,15 @@ $media-min-width: 768px;
 $container-max-width: 1200px;
 
 $colors-map: (
+  "bg-primary": #1A1B20,
+  "bg-secondary": #292B33,  /* #23242B */
+
   "light": #fff,
   "dark": #000,
-  "primary": #f50,
-  "muted": #bbb,
-  "link": #09f,
+  "primary": #006CCC,
+  "secondary": #FC8C0D,
+  "muted": #666A7E,
+  "link": #006CCC,
   "selection": #f90,
   "grey": #eee,
 ) !default;
